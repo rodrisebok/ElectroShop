@@ -1,0 +1,146 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Estilo básico para el body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffff;
+    font-size: 1rem;
+}
+
+/* Estilo para el header */
+header {
+    
+    color: white;
+    padding: 0.02em;
+    text-align: left;
+}
+
+
+/* Estilo para la barra de navegación */
+nav {
+    background-color: #444;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: rgb(236, 179, 21); /* Mantiene tu color */
+    box-shadow: 0 0 8px rgba(236, 179, 21, 0.8); /* Efecto de brillo */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    box-shadow: 0 0 12px rgba(236, 179, 21, 1); /* Brillo más intenso en hover */
+}
+
+nav a:hover {
+    background-color: #555; /* Cambio de fondo opcional */
+}
+
+
+
+
+
+
+
+/* Estilo para las secciones */
+/*section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+}*/
+
+section {
+    
+    padding: 1em;
+    background-color: white;
+    margin: 1em;
+    border-radius: 1em;
+    justify-content: space-between;
+}
+
+#carouselExampleAutoplaying {
+    max-height: 30em; /* Ajusta la altura según necesites */
+    overflow: hidden; /* Para que no haya desbordamiento */
+}
+
+#carouselExampleAutoplaying img {
+    max-height: 40em;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+/* Estilo para el footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: unset;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    /* Cambiar la disposición del nav para pantallas medianas */
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustar los tamaños y espaciados para móviles */
+    header {
+        padding: 10px;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    section {
+        padding: 10px;
+    }
+}
