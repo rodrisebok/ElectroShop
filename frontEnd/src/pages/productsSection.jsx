@@ -9,6 +9,7 @@ const ProductsSection = () => {
       axios
         .get("http://localhost:5000/api/products") // Endpoint del backend
         .then((response) => {
+          console.log(response.data)
           setProducts(response.data);
         })
         .catch((error) => {
