@@ -72,6 +72,9 @@ section {
     justify-content: space-between;
 }
 
+section image{
+    height: 50px;
+}
 #carouselExampleAutoplaying {
     max-height: 40em; /* Ajusta la altura según necesites */
     overflow: hidden; /* Para que no haya desbordamiento */

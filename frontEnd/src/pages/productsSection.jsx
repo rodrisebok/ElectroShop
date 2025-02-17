@@ -23,7 +23,7 @@ const ProductsSection = () => {
         <div className="row">
           {products.length > 0 ? (
             products.map((product) => (
-              <ProductCard key={product._id} image={product.image} title={product.title} price={`$${product.price}`} />
+              <ProductCard key={product._id} image={product.image} name={product.name} price={`$${product.price}`}category={product.category} />
             ))
           ) : (
             <p>Cargando productos...</p>

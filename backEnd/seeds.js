@@ -1,75 +1,77 @@
-const mongoose = require("mongoose");
-const Products = require("./models/productModel");
+const mongoose = require('mongoose');
+const Product = require('./models/productModels'); // Importamos el modelo de producto
 
-// Conexión a la base de datos
-const connectDB = async () => {
-  try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/ElectroShop", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Conectado a MongoDB");
-  } catch (error) {
-    console.error("Error de conexión a MongoDB:", error);
-    process.exit(1);
-  }
-};
+// Conectar a la base de datos
+mongoose.connect('mongodb://localhost:27017/ElectroShop', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Database connected');
+})
+.catch((err) => {
+  console.log('Database connection error: ', err);
+});
 
+// Crear algunos productos con imágenes
 const seedProducts = async () => {
-  try {
-    await connectDB(); // Conectar a la base de datos
-    await Products.deleteMany({});
-    console.log("Productos Eliminados");
-    await Products.insertMany([
-      {
-        name: "Iphone X",
-        category: "Phones",
-        price: 200,
-        image: "imgIphoneX.jpg",
-      },
-      {
-        name: "Iphone 15",
-        category: "Phones",
-        price: 800,
-        image: "imgIphone15.jpg",
-      },
-      {
-        name: "Mouse",
-        category: "Peripherals",
-        price: 50,
-        image: "imgMouse.jpg",
-      },
-      {
-        name: "Headsets",
-        category: "Peripherals",
-        price: 130,
-        image: "imgHeadsets.jpg",
-      },
-      {
-        name: "Office Chair",
-        category: "Furniture",
-        price: 120,
-        image: "imgOfficeChair.jpg",
-      },
-      {
-        name: "Gaming Chair",
-        category: "Furniture",
-        price: 200,
-        image: "imgGamingChair.jpg",
-      },
-      {
-        name: "Desk",
-        category: "Furniture",
-        price: 180,
-        image: "imgDesk.jpg",
-      },
-    ]);
-    console.log("Productos insertados correctamente");
-    mongoose.connection.close();
-  } catch (error) {
-    console.error("Error al insertar productos:", error);
-    mongoose.connection.close();
-  }
-};
-
-seedProducts();
+    try {
+      const products = [
+        {
+            name: "Iphone X",
+            category: "Phones",
+            price: 200,
+            image: "/images/imgIphoneX.jpg",
+          },
+          {
+            name: "Iphone 15",
+            category: "Phones",
+            price: 800,
+            image: "/images/imgIphone15.jpg",
+          },
+          {
+            name: "Mouse",
+            category: "Peripherals",
+            price: 50,
+            image: "/images/imgMouse.jpg",
+          },
+          {
+            name: "Headsets",
+            category: "Peripherals",
+            price: 130,
+            image: "/images/imgHeadsets.jpg",
+          },
+          {
+            name: "Office Chair",
+            category: "Furniture",
+            price: 120,
+            image: "/images/imgOfficeChair.jpg",
+          },
+          {
+            name: "Gaming Chair",
+            category: "Furniture",
+            price: 200,
+            image: "/images/imgGamingChair.jpg",
+          },
+          {
+            name: "Desk",
+            category: "Furniture",
+            price: 180,
+            image: "/images/imgDesk.jpg",
+          },
+      ];
+  
+      // Borrar todos los productos previos para limpiar la base de datos
+      await Product.deleteMany({});
+  
+      // Insertar los productos en la base de datos
+      await Product.insertMany(products);
+  
+      console.log('Products have been seeded');
+      mongoose.disconnect(); // Desconectarse de la base de datos después de insertar los productos
+    } catch (err) {
+      console.log('Error seeding products:', err);
+    }
+  };
+  
+  seedProducts(); // Llamar a la función para ejecutar el seeding
