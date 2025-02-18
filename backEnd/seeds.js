@@ -17,12 +17,12 @@ mongoose.connect('mongodb://localhost:27017/ElectroShop', {
 const seedProducts = async () => {
     try {
       const products = [
-        {
+        /*{
             name: "Iphone X",
             category: "Phones",
             price: 200,
             image: "/images/imgIphoneX.jpg",
-          },
+          },*/
           {
             name: "Iphone 15",
             category: "Phones",
@@ -40,8 +40,8 @@ const seedProducts = async () => {
             category: "Peripherals",
             price: 130,
             image: "/images/imgHeadsets.jpg",
-          },
-          {
+          }//,
+          /*{
             name: "Office Chair",
             category: "Furniture",
             price: 120,
@@ -58,7 +58,7 @@ const seedProducts = async () => {
             category: "Furniture",
             price: 180,
             image: "/images/imgDesk.jpg",
-          },
+          },*/
       ];
   
       // Borrar todos los productos previos para limpiar la base de datos

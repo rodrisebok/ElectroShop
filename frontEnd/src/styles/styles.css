@@ -88,6 +88,106 @@ section image{
     min-height: 20em;
 }
 
+#imgCard{
+    height: 20em;
+    object-fit: cover;
+}
+
+.product-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Ajusta el tamaño máximo del contenedor del carousel */
+    margin: 10px auto;
+    overflow: hidden;
+  }
+  
+  .carouselProducts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .carouselProducts-items {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    gap: 1.5em; /* Eliminamos cualquier espacio entre las tarjetas */
+  }
+  
+  .carouselProduct-item {
+    flex: 0 0 auto; /* Esto permitirá que las tarjetas tengan un ancho adecuado basado en su contenido */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carouselProduct-item.center {
+    transform: scale(1.1); /* Producto central más grande */
+  }
+  
+  .carouselProducts-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .carouselProducts-control.prev {
+    left: 10px;
+  }
+  
+  .carouselProducts-control.next {
+    right: 10px;
+  }
+  
+  /* Ajuste de las tarjetas de producto */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card {
+    width: 300px; /* Fijamos un ancho adecuado para las tarjetas */
+    height: auto; /* Asegura que la imagen se ajuste correctamente */
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Opcional: para redondear las esquinas de la imagen */
+  }
+  
+  .card-body {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .card-name, .card-category, .card-text {
+    margin: 5px 0;
+  }
+  
+  .card-text {
+    font-weight: bold;
+  }
+  
+  .btn-warning {
+    margin-top: 10px;
+    background-color: #f0ad4e;
+    border: none;
+  }
+  
+  
+  
+
+  
 /* Estilo para el footer */
 footer {
     background-color: #333;
@@ -114,6 +214,10 @@ footer {
     section {
         padding: 15px;
     }
+    
+    .carouselProducts-item img {
+        width: 150px; /* Ajusta a un tamaño más pequeño en móviles */
+      }
 }
 
 @media (max-width: 480px) {

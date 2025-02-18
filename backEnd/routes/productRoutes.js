@@ -7,22 +7,22 @@ const router = express.Router();
 // Ruta para subir un producto con su imagen
 router.post('/upload', upload.single('image'), async (req, res) => {
   try {
-    // Crear un nuevo producto con la URL de la imagen
+   
     const product = new Product({
-      name: 'Product Name',       // Aquí puedes tomar los datos del body de la solicitud
+      name: 'Product Name',       
       category: 'Product Category',
       price:"Product Price",
-      image: '/images/' + req.file.filename,  // Guardamos la ruta de la imagen
+      image: '/images/' + req.file.filename, 
     });
 
-    await product.save();  // Guardamos el producto en la base de datos
+    await product.save();  
     res.json({ message: 'Image uploaded successfully', product });
   } catch (error) {
-    res.status(500).json({ error: 'Error uploading image' });
+    res.status(500).json({ error: 'Error uploading image',error });
   }
 });
 
-// Ruta para obtener todos los productos
+
 router.get('/', async (req, res) => {
     try {
       const products = await Product.find();
@@ -33,4 +33,4 @@ router.get('/', async (req, res) => {
   });
   
 
-module.exports = router;  // Exportamos las rutas para usarlas en app.js
+module.exports = router; 
