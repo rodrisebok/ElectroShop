@@ -40,7 +40,7 @@ const seedProducts = async () => {
             category: "Peripherals",
             price: 130,
             image: "/images/imgHeadsets.jpg",
-          }//,
+          },//,
           /*{
             name: "Office Chair",
             category: "Furniture",
